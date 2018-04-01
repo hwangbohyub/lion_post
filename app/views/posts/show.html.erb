@@ -2,13 +2,16 @@
 <hr>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%=@post.title%></div>
+  <div class="panel-heading" style="font-size:1.7em;"><%=@post.title%></div>
   <div class="panel-body">
+    <p style="text-align:right;"><%=@post.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d %H:%M")%></p>
     <%=@post.content.html_safe%>
     <hr>
     <% if user_signed_in? && @post.user.id == current_user.id %>
-      <%=link_to "[수정]", edit_post_path%>
-      <%=link_to "[삭제]", post_path, method: :delete, data: {confirm: "정말로 삭제하시겠습니까?"}%>
+      <p style="text-align:right;">
+        <%=link_to "[수정]", edit_post_path%>&nbsp;&nbsp;
+        <%=link_to "[삭제]", post_path, method: :delete, data: {confirm: "정말로 삭제하시겠습니까?"}%>
+      </p>
     <% end %>
   </div>
 </div>
@@ -27,7 +30,7 @@
 <% @post.comments.each do |comment|%>
   <div class="media">
     <div class="media-left">
-      <img src="/assets/git_icon.png" class="media-object" style="width:45px">
+      <img src="/assets/lion_icon.png" class="media-object" style="width:45px">
     </div>
     <div class="media-body">
       <h4 class="media-heading">
