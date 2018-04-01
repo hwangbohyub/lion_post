@@ -1,24 +1,15 @@
-# README
+# LikeLion CRUD 프로젝트
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+form_for, bootsrap, tinymce, devise 를 사용한 게시판 프로젝트.
 
-Things you may want to cover:
+사용한 Gem:
 
-* Ruby version
+* gem 'bootstrap-sass', '~> 3.3.7'
 
-* System dependencies
+* gem "bootstrap_form"
 
-* Configuration
+* Configurationgem 'tinymce-rails'
 
-* Database creation
+* gem 'devise'
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* gem 'devise-bootstrap-views'
