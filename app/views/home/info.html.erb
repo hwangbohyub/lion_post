@@ -1,0 +1,22 @@
+<h1># 내정보</h1>
+<hr>
+<div class="my_info">
+  <h4># 작성한 게시물 (<%=current_user.posts.length%>)</h4>
+  <% current_user.posts.each do |p| %>
+    <%=link_to post_path(p) do %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%=p.title%></div>
+        <div class="panel-body"><%=p.content.html_safe%></div>
+      </div>
+    <%end%>
+  <% end %>
+
+  <hr>
+
+  <h4># 작성한 댓글 (<%=current_user.comments.length%>)</h4>
+  <% current_user.comments.each do |c|%>
+    <%=link_to post_path(c.post_id) do %>
+      <div class="well well-lg"><%=c.content%></div>
+    <% end %>
+  <% end %>
+</div>

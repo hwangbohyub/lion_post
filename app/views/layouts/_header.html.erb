@@ -1,0 +1,36 @@
+<nav id="header" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a id="hover" class="navbar-brand" href="/">라이크라이언</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%=link_to "게시판", posts_path%></li>
+      <li><%=link_to "새글작성", new_post_path%></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li>
+          <%=link_to info_path do%>
+            <p><span class="glyphicon glyphicon-user"></span> <%=current_user.email%></p>
+          <%end%>
+        </li>
+        <li>
+          <%=link_to destroy_user_session_path, method: :delete do%>
+            <p><span class="glyphicon glyphicon-log-in"></span> 로그아웃</p>
+          <%end%>
+        </li>
+      <% else %>
+      <li>
+        <%=link_to new_user_session_path do%>
+          <p><span class="glyphicon glyphicon-log-in"></span> 로그인</p>
+        <%end%>
+      </li>
+      <li>
+        <%=link_to new_user_registration_path do%>
+          <p><span class="glyphicon glyphicon-user"></span> 회원가입</p>
+        <%end%>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

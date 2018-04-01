@@ -1,0 +1,25 @@
+<h1># 게시판</h1>
+<hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th width="100px">글번호</th>
+      <th width="250px">제목</th>
+      <th width="400px">내용</th>
+      <th width="200px">작성자</th>
+      <th>이동</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each_with_index do |post,index| %>
+    <tr>
+      <td><%=index+1%></td>
+      <td><%=post.title%></td>
+      <td><%=post.content.html_safe%></td>
+      <td><%=post.user.email%></td>
+      <td><%=link_to "[이동]",post%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
